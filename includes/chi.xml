@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest>
+
+  <include name="includes/opensource-repos.xml"/>
+  <include name="includes/xstreamworship-repos.xml"/>
+
+  <project remote="xstreamworship" revision="buildroot-2012.11-cross-rpm-wip" name="xstreamworship/buildroot-cross-rpm" path="experimental/buildroot-cross-rpm">
+    <linkfile dest="README" src="README.md"/>
+    <annotation name="BASE_SETUPENV_MACHINE" value="chi" keep="true"/>
+    <annotation name="BASE_SETUPENV_DISTRO" value="poky" keep="true"/>
+  </project>
+
+  <project remote="xswlocked" revision="master" name="xstreamworship/jamvm" path="experimental/jamvm"/>
+
+  <project remote="xstreamworship" revision="master" name="xstreamworship/chi" path="etc/chi-manifest"/>
+
+</manifest>

@@ -1,0 +1,52 @@
+Gerrithub Notes - Aug 19, 2017
+==============================
+Darcy Watkins
+
+Gerrithub.io implements a Gerrit code review server that coexists with GIT repositories
+setup on github.com.  If setup properly, you can implement Android like development
+workflow using 'repo' tool to manage content on github.
+
+There are some quirks in how it works so use following guidelines to avoid gotchas.
+
+1.  When you checkout a project you must, absolutely MUST, make sure that your userid
+    used for committed-by matches you github userid.  When you 'repo init' make sure
+    you use the --config-name and set the email to your github userid.  In my case,
+    my github userid is 'xstreamworship' so my committed by appears like,
+       Darcy Watkins <xstreamworship>
+    Anything else and you will get access control permission errors.  Also, trying to
+    reinitialize the checkout to change the identity, won't work.  If yo get it wrong,
+    start over.  If you messed this up, you won't know until you try to 'repo upload'.
+    You may have difficulty merging changes from one git repo to another, and you may
+    have to resort to exporting as patches and applying / committing them to your new
+    workspace.  It's best to try to upload something simple at first to verify.
+
+2.  When you setup repos in github to use gerrit hub as the review server, the path to
+    your github repo needs to be part of the project name.  If you put it as part of
+    the remote definition, you will encounter obscur errors.  For example, do it this
+    way:
+       <remote fetch="https://github.com" review="review.gerrithub.io" name="blah"/>
+       <project remote="blah" revision="master" name="userid/yadda" path="someplace"/>
+    Don't try doing it this way:
+       <remote fetch="https://github.com/userid" review="review.gerrithub.io" name="blah"/>
+       <project remote="blah" revision="master" name="yadda" path="someplace"/>
+    The first way will work (if identity setup as your githib userid).  The second won't
+    work at all.
+
+3.  If you have other projects (say from open sources) that you won't be using Gerrithub
+    to submit changes, you can use either pattern above, and it doesn't care about your
+    userid matching.  In such cases, best practice is to define remotes, and use git://
+    style URLs.
+
+4.  If you have other Gerrit servers as well as Gerrithub, I have no guidance in this
+    doc.  Likely you can only get one to work at a time.  You may have to resort to
+    manually using GIT to push commits for review.
+
+5.  Other note related to 'repo' (but not related to gerrithub) is that the extend-project
+    XML element in manifests is not very useful.  You cannot use it to override anything
+    useful such as 'revision' or 'upstream'.  You pretty much need to remove-project
+    followed by a replacement project element.  Unfortunately this means that if the
+    project being removed has sub elements, you have to replicate this in the replacement.
+
+6.  Gerrithub repos default as allowing access only to the owner.  Usually in collaborative
+    projects, some sort of group needs to be setup with people added as members.  Then the
+    access permission needs to be setup based on the group(s).
