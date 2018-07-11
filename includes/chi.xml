@@ -10,6 +10,6 @@
     <annotation name="BASE_SETUPENV_DISTRO" value="chi" keep="true"/>
   </project>
 
-  <project remote="xstreamworship" revision="master" name="xstreamworship/chi" path="etc/chi-manifest"/>
+  <project remote="xstreamworship" revision="master" name="xstreamworship/chi" path="etc/manifest"/>
 
 </manifest>
