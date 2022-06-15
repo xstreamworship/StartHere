@@ -4,14 +4,14 @@
   <include name="includes/opensource-repos.xml"/>
   <include name="includes/xstreamworship-repos.xml"/>
 
-  <project remote="xstreamworship" revision="master" name="xstreamworship/chi-fw-arduino-sketches" path="firmware">
+  <project remote="xstreamworship" revision="main" name="xstreamworship/chi-fw-arduino-sketches" path="firmware">
     <linkfile dest="README" src="README.md"/>
     <annotation name="BASE_SETUPENV_MACHINE" value="chi" keep="true"/>
     <annotation name="BASE_SETUPENV_DISTRO" value="chi" keep="true"/>
   </project>
 
-  <project remote="xstreamworship" revision="master" name="xstreamworship/chi-hw-cad-files" path="hardware"/>
+  <project remote="xstreamworship" revision="main" name="xstreamworship/chi-hw-cad-files" path="hardware"/>
 
-  <project remote="xstreamworship" revision="master" name="xstreamworship/chi" path="etc/manifest"/>
+  <project remote="xstreamworship" revision="main" name="xstreamworship/StartHere" path="etc/StartHere"/>
 
 </manifest>
