@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <manifest>
 
-  <remote fetch="git://github.com" name="xswlocked"/>
-  <remote fetch="https://github.com" review="review.gerrithub.io" name="xstreamworship"/>
+  <remote fetch="https://github.com" name="xswlocked"/>
+  <remote fetch="https://github.com" name="xstreamworship"/>
+  <remote fetch="https://github.com" review="review.gerrithub.io" name="xswgerrit"/>
 
-  <default remote="xstreamworship" sync_j="4" sync_c="true" sync_s="true" revision="master"/>
+  <default remote="xstreamworship" sync_j="4" sync_c="true" sync_s="true" revision="main"/>
 
 </manifest>
