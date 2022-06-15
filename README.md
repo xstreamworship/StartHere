@@ -8,12 +8,11 @@ from all dependent repos, and set it up for use.
 Contents
 ========
 
-chi-master-branch.xml - CHI enhanced MIDI keyboard workstation
+chi.xml - CHI enhanced MIDI keyboard workstation
 
 ---
 
-The default.xml manifest is a symlink to chi-master-branch.xml.  The default.xml is deprecated and will be dropeed.
-The manifest for Chi will be renamed to drop the 'master' once the branch names are updated.
+The default.xml manifest symlink has been removed.  Yo must select a specific manifest file.
 
 Getting Started
 ===============
@@ -51,7 +50,7 @@ All Rights Reserved
 License
 =======
 
-Since 'repo' is used to manage a multi-project workspace, multiple licesnes may apply.
+Since 'repo' is used to manage a multi-project workspace, multiple licenses may apply.
 
 See the license that is applicable per project pulled in using the manifest.
 
